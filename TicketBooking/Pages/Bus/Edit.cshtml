@@ -1,0 +1,54 @@
+﻿@page "{id}"
+@model TicketBooking.Pages.Bus.EditModel
+@{
+}
+<h3>@Model.Id</h3>
+<h3 class="text-center">  Edit New </h3>
+<form method="post" class="container shadow p-20 h-50 w-50 " >
+    <div class="form-group">
+        <label asp-for="@Model.DriverName"> </label>
+        <input asp-for="@Model.DriverName" class="form-control" />
+        <br />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.SelectedCategoryId"> </label>
+        <select asp-for="@Model.SelectedCategoryId" asp-items ="@Model.CategoryList" class="form-control"> </select>
+        <br />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.V_Number">  </label>
+        <input asp-for="@Model.V_Number" class="form-control" />
+        <br />
+    </div>
+
+     <div class="form-group">
+        <label asp-for="@Model.StartLocation"> </label>
+       <select asp-for="@Model.StartLocation" asp-items="@Model.StartLocations"></select>
+        <br />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="@Model.EndLocation"> </label>
+        <select asp-for="@Model.EndLocation" asp-items="@Model.EndLocations"></select>
+        <br />
+    </div>
+    <br />
+     <div class="form-group">
+        <label asp-for="@Model.Cost"> </label>
+        <input asp-for="@Model.Cost" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+         <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">SAVE</button>
+        <a href="/Bus/List" class="btn btn-light" role="button">Cancel</a>
+    </div>
+</form>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model TicketBooking.Pages.LoginModel
+@{
+}
+<center><h3>Welcome to SRS-Travels </h3></center>
+<form method="post" class="container shadow p-20 h-50 w-50 ">
+<div class = "form-group">
+    <div class="row">
+        <div class="mb-3">
+  <label for="" class="form-label">UserName</label>
+  <input type="text" class="form-control" asp-for="@Model.Username" id="UserName" placeholder="UserName">
+</div>
+        <br />
+        <div>
+             <label for="" class="form-label">Password</label>
+  <input type="Password" class="form-control" asp-for="@Model.Password" id="Password" placeholder="Password">
+</div></br>
+ <div class="b1">
+     
+
+            <button type="submit" class="  btn btn-primary">Login</button>
+             <a href="/Index" class="btn btn-light" role="button">Cancel</a>
+       
+</div>
+
+         <div class= "row">
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+    </div>
+
+ </div>
+ </form>

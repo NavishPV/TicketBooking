@@ -1,0 +1,69 @@
+﻿@page
+@model TicketBooking.Pages.ABus.ListModel
+@{
+}
+<form method="post">
+    <div class = "form-group">
+    <div class="row"> 
+            <div class="col"><h3>Booking Tickets</h3></div>
+           
+           
+           
+        </div>
+        <br />
+    
+   </div>
+    <div>
+        <h6 class="text-success">@Model.SuccessMessage </h6>
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+    </div>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">FirstName</th>
+                <th scope="col">StartLocation</th>
+                <th scope="col">EndLocation</th>
+                <th scope="col">JourneyDate</th>
+                   <th scope="col">Num_Of_Seats</th>
+                    <th scope="col">Cost</th>
+
+                   <th scope="col">Status</th>
+                     
+
+            </tr>
+        </thead>
+        <tbody>
+             @if(Model.TicketList == null || Model.TicketList.Count <=0)
+                {
+                    <tr>
+                       <td>"error.no.data found!!"</td>
+                </tr>
+            }
+
+            else
+            {
+           
+            @foreach (var d in @Model.TicketList)
+            {
+                <tr>
+                    <td>@d.FirstName</td>
+                    <td>@d.StartLocation</td>
+                        <td>@d.EndLocation</td>
+                            <td>@d.JourneyDate</td>
+                                <td>@d.Num_Of_Seats</td>
+                                <td>@d.Cost</td>
+                                    <td>@d.Status</td>
+                                    
+
+                                        <td>
+                       
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+
+</form>

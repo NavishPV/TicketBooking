@@ -1,0 +1,73 @@
+﻿@page
+@model TicketBooking.Pages.Customers.ListModel
+@{
+}
+<form method="post">
+    <div class = "form-group">
+    <div class="row"> 
+            <div class="col"><h3>Customers</h3></div>
+            <div class="col">
+                <a href="/Customers/Add" class="btn btn-success" role="button">Add</a>
+            </div>
+        </div>
+        <br />
+        </div>
+    <div>
+        <h6 class="text-success">@Model.SuccessMessage </h6>
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+    </div>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                   <th scope="col">Mobile</th>
+                   <th scope="col">City</th>
+                    <th scope="col">State</th>
+                     <th scope="col">Password</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+             @if(Model.CustomerList == null || Model.CustomerList.Count <=0)
+                {
+                    <tr>
+                       <td>"error.no.data found!!"</td>
+                </tr>
+            }
+
+            else
+            {
+           
+            @foreach (var d in @Model.CustomerList)
+            {
+                <tr>
+                    <td>@d.Id</td>
+                    <td>@d.FirstName</td>
+                        <td>@d.LastName</td>
+                            <td>@d.Email</td>
+                                <td>@d.Mobile</td>
+                                    <td>@d.City</td>
+                                    <td>@d.State</td>
+                                     <td>@d.Password</td>
+
+                                    
+
+                                        <td>
+                        <a href="/Customers/Edit/@d.Id" class="btn btn-warning" role="button">
+                            <i class="fa-solid fa-pen-to-square"></i></a>
+                        
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+
+</form>
+

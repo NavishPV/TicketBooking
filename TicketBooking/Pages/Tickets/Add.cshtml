@@ -1,0 +1,46 @@
+﻿@page
+@model TicketBooking.Pages.Tickets.AddModel
+@{
+}
+<h3 class="text-center">  Add New </h3>
+<form method="post" class="container shadow p-20 h-50 w-50 " >
+    @* <div class="form-group">
+        <label asp-for="@Model.SelectedCustomerId"> </label>
+        <select asp-for="@Model.SelectedCustomerId" asp-items ="@Model.CustomerList" class="form-control"> </select>
+        <br />
+    </div>*@
+   <div class="form-group">
+        <label asp-for="@Model.SelectedBusId"> </label>
+        <select asp-for="@Model.SelectedBusId" asp-items ="@Model.BusList" class="form-control"> </select>
+        <br />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.JourneyDate">  </label>
+        <input asp-for="@Model.JourneyDate" class="form-control" />
+        <br />
+    </div>
+
+     <div class="form-group">
+        <label asp-for="@Model.Num_Of_Seats"> </label>
+        <input asp-for="@Model.Num_Of_Seats" class="form-control" />
+        <br />
+    </div>
+   @* <div class="form-group">
+        <label asp-for="@Model.Status"> </label>
+        <input asp-for="@Model.Status" class="form-control" />
+        <br />
+    </div>*@
+
+    <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6 class="text-danger">@Html.ValidationSummary()</h6>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">SAVE</button>
+        <a href="/Tickets/List" class="btn btn-light" role="button">Cancel</a>
+    </div>
+</form>
+</div>

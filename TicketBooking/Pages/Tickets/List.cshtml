@@ -1,0 +1,63 @@
+﻿@page
+@model TicketBooking.Pages.Tickets.ListModel
+@{
+}
+<form method="post">
+    <div class = "form-group">
+    <div class="row"> 
+            <div class="col"><h3>Tickets</h3></div>
+            <div class="col">
+                <a href="/Tickets/Add" class="btn btn-success" role="button">Add</a>
+            </div>
+        </div>
+       
+        <h6 class="text-success">@Model.SuccessMessage </h6>
+        <h6 class="text-danger">@Model.ErrorMessage </h6>
+    </div>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">CustomerId</th>
+                <th scope="col">BusId</th>
+                <th scope="col">JourneyDate</th>
+                   <th scope="col">Num_Of_Seats</th>
+                   <th scope="col">Status</th>
+                    
+
+            </tr>
+        </thead>
+        <tbody>
+             @if(Model.TicketList == null || Model.TicketList.Count <=0)
+                {
+                    <tr>
+                       <td>"error.no.data found!!"</td>
+                </tr>
+            }
+
+            else
+            {
+           
+            @foreach (var d in @Model.TicketList)
+            {
+                <tr>
+                    <td>@d.Id</td>
+                    <td>@d.CustomerId</td>
+                        <td>@d.BusId</td>
+                            <td>@d.JourneyDate</td>
+                                <td>@d.Num_Of_Seats</td>
+                                    <td>@d.Status</td>
+                                    
+
+                                        <td>
+                        
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+
+</form>
